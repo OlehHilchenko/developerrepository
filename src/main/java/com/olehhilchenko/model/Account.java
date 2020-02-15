@@ -38,6 +38,8 @@ public class Account {
             this.accountStatus = AccountStatus.BANNED;
         else if (accountStatus.equals("ACTIVE"))
             this.accountStatus = AccountStatus.ACTIVE;
+        else if (accountStatus.equals("DEFAULT"))
+            this.accountStatus = AccountStatus.DEFAULT;
     }
 
     @Override

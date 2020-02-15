@@ -51,6 +51,10 @@ public class Skill {
         return name != null ? name.equals(skill.name) : skill.name == null;
     }
 
+    public boolean equalsByID(Object o){
+        return this.id == ((Skill) o).id;
+    }
+
     @Override
     public int hashCode() {
         int result = (int) (id ^ (id >>> 32));

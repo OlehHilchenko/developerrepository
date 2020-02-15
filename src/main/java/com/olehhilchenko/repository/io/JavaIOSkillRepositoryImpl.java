@@ -27,17 +27,58 @@ public class JavaIOSkillRepositoryImpl implements SkillRepository {
 
     @Override
     public Skill read(Long aLong) {
+        List<Skill> skillList = null;
+        try{
+            skillList = reader();
+        }catch (FileNotFoundException e){
+            System.err.println(e);
+        }
+        if(skillList == null)
+        return null;
+
+        for(Skill skill : skillList){
+            if(aLong.equals(skill.getId()))
+                return skill;
+        }
         return null;
     }
 
     @Override
     public void update(Skill skill) {
+        List<Skill> skillList = null;
+        try {
+            skillList = reader();
+        }catch (FileNotFoundException e){
+            System.err.println(e);
+        }
+        if (skillList == null)
+            return;
 
+        for (int i = 0; i < skillList.size(); i++){
+            if (skillList.get(i).equalsByID(skill)){
+                skillList.remove(i);
+                skillList.add(skill);
+            }
+        }
+        writer(skillList);
     }
 
     @Override
     public void remove(Long aLong) {
-
+        List<Skill> skillList = null;
+        try {
+            skillList = reader();
+        }catch (FileNotFoundException e){
+            System.err.println(e);
+        }
+        if(skillList == null)
+            return;
+        for(int i = 0; i < skillList.size(); i++){
+            if (skillList.get(i).getId() == aLong){
+                skillList.remove(i);
+            }
+        }
+        writer(skillList);
     }
 
     @Override
@@ -51,7 +92,7 @@ public class JavaIOSkillRepositoryImpl implements SkillRepository {
         return skillList;
     }
 
-    public List<Skill> reader() throws FileNotFoundException {
+    private List<Skill> reader() throws FileNotFoundException {
         List<Skill> list = new ArrayList<Skill>();
 
         Csv.Reader reader = new Csv.Reader(new FileReader(csvSkillFileName));
@@ -70,7 +111,7 @@ public class JavaIOSkillRepositoryImpl implements SkillRepository {
         return list;
     }
 
-    public void writer(List<Skill> skills){
+    private void writer(List<Skill> skills){
         if(skills == null){
             System.out.println("JavaIOSkillRepo: skills is null");
             return;
