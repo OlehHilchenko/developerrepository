@@ -21,7 +21,7 @@ public class AutoIncrementUniqueID {
         return autoIncrementUniqueID;
     }
 
-    public  Long getNextID() {
+    public Long getNextID() {
         if (nextID == null) {
             nextID = 0l;
             DeveloperRepositoryFacade developerRepositoryFacade = new DeveloperRepositoryFacade();
@@ -36,7 +36,7 @@ public class AutoIncrementUniqueID {
                         nextID = skill.getId();
             }
             return ++nextID;
-        }else
+        } else
             return ++nextID;
     }
 }

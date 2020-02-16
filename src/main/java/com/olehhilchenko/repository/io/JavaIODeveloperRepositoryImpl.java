@@ -28,7 +28,7 @@ public class JavaIODeveloperRepositoryImpl implements DeveloperRepository {
             List<Developer> developerList = reader();
             developerList.add(developer);
             writer(developerList);
-        }catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             System.err.println(e);
         }
     }
@@ -38,13 +38,13 @@ public class JavaIODeveloperRepositoryImpl implements DeveloperRepository {
         List<Developer> developerList = null;
         try {
             developerList = reader();
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.out.println(e);
         }
         if (developerList == null)
             return null;
 
-        for (Developer developer: developerList) {
+        for (Developer developer : developerList) {
             if (aLong.equals(developer.getId()))
                 return developer;
         }
@@ -56,14 +56,14 @@ public class JavaIODeveloperRepositoryImpl implements DeveloperRepository {
         List<Developer> developerList = null;
         try {
             developerList = reader();
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.out.println(e);
         }
-        if(developerList == null)
+        if (developerList == null)
             return;
 
-        for(int i = 0; i < developerList.size(); i++){
-            if(developer.equalsById(developerList.get(i))){
+        for (int i = 0; i < developerList.size(); i++) {
+            if (developer.equalsById(developerList.get(i))) {
                 developerList.remove(i);
                 developerList.add(developer);
             }
@@ -77,14 +77,14 @@ public class JavaIODeveloperRepositoryImpl implements DeveloperRepository {
         List<Developer> developerList = null;
         try {
             developerList = reader();
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.out.println(e);
         }
         if (developerList == null)
             return;
 
-        for(int i = 0; i < developerList.size(); i++){
-            if (aLong.equals(developerList.get(i)))
+        for (int i = 0; i < developerList.size(); i++) {
+            if (aLong.equals(developerList.get(i).getId()))
                 developerList.remove(i);
         }
         writer(developerList);
@@ -95,7 +95,7 @@ public class JavaIODeveloperRepositoryImpl implements DeveloperRepository {
         List<Developer> developerList = null;
         try {
             developerList = reader();
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.err.println(e);
         }
         return developerList;

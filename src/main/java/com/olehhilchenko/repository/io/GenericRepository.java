@@ -6,11 +6,11 @@ public interface GenericRepository<T, ID> {
 
     void insert(T t);
 
-    T read (ID id);
+    T read(ID id);
 
-    void update (T t);
+    void update(T t);
 
-    void remove (ID id);
+    void remove(ID id);
 
     List<T> list();
 }

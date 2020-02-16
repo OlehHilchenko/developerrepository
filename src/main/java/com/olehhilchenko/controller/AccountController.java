@@ -38,4 +38,11 @@ public class AccountController {
             }
         }
     }
+
+    public Account updateAccount(Account updateAccount) {
+        actionTips.choiceAccountStatus();
+        choiceAccountStatus(updateAccount);
+
+        return updateAccount;
+    }
 }

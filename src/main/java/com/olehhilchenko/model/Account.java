@@ -19,6 +19,7 @@ public class Account {
     public void setId(long id) {
         this.id = id;
     }
+
     public void setId(String id) {
         this.id = Long.parseLong(id);
     }
@@ -61,7 +62,7 @@ public class Account {
         return accountStatus == account.accountStatus;
     }
 
-    public boolean equalsByID(Object o){
+    public boolean equalsByID(Object o) {
         return this.id == ((Account) o).id;
     }
 

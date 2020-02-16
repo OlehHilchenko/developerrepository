@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class DeveloperRepositoryFacade implements DeveloperRepository{
+public class DeveloperRepositoryFacade implements DeveloperRepository {
     private DeveloperRepository developerRepository = new JavaIODeveloperRepositoryImpl();
     private AccountRepository accountRepository = new JavaIOAccountRepositoryImpl();
     private SkillRepository skillRepository = new JavaIOSkillRepositoryImpl();
@@ -18,7 +18,7 @@ public class DeveloperRepositoryFacade implements DeveloperRepository{
     public void insert(Developer developer) {
         developerRepository.insert(developer);
         accountRepository.insert(developer.getAccount());
-        for(Skill skill : developer.getSkills()){
+        for (Skill skill : developer.getSkills()) {
             skillRepository.insert(skill);
         }
     }
@@ -29,7 +29,7 @@ public class DeveloperRepositoryFacade implements DeveloperRepository{
         developer = developerRepository.read(aLong);
         developer.setAccount(accountRepository.read(developer.getAccount().getId()));
         Set<Skill> skillSet = new HashSet<Skill>();
-        for (Skill skill : developer.getSkills()){
+        for (Skill skill : developer.getSkills()) {
             skillSet.add(skillRepository.read(skill.getId()));
         }
         developer.setSkills(skillSet);
@@ -53,7 +53,7 @@ public class DeveloperRepositoryFacade implements DeveloperRepository{
             skillRepository.remove(skill.getId());
         }
         accountRepository.remove(developer.getAccount().getId());
-        developerRepository.remove(developer.getId());
+        developerRepository.remove(aLong);
     }
 
     @Override
@@ -62,17 +62,17 @@ public class DeveloperRepositoryFacade implements DeveloperRepository{
         List<Account> accountList = accountRepository.list();
         List<Skill> skillList = skillRepository.list();
 
-        for(Developer developer : developerList){
-            for (Account account : accountList){
+        for (Developer developer : developerList) {
+            for (Account account : accountList) {
                 if (account.getId() == developer.getAccount().getId())
                     developer.setAccount(account);
             }
         }
         Set<Skill> skillSet = new HashSet<Skill>();
-        for (Developer developer : developerList){
-            for (Skill skillFromSkillList : skillList){
-                for (Skill skill : developer.getSkills()){
-                    if (skill.equalsByID(skillFromSkillList)){
+        for (Developer developer : developerList) {
+            for (Skill skillFromSkillList : skillList) {
+                for (Skill skill : developer.getSkills()) {
+                    if (skill.equalsByID(skillFromSkillList)) {
                         skillSet.add(skillFromSkillList);
                     }
                 }

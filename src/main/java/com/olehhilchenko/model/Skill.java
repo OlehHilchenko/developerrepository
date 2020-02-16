@@ -20,7 +20,7 @@ public class Skill {
         this.id = id;
     }
 
-    public void setId(String id){
+    public void setId(String id) {
         this.id = Long.parseLong(id);
     }
 
@@ -51,7 +51,7 @@ public class Skill {
         return name != null ? name.equals(skill.name) : skill.name == null;
     }
 
-    public boolean equalsByID(Object o){
+    public boolean equalsByID(Object o) {
         return this.id == ((Skill) o).id;
     }
 

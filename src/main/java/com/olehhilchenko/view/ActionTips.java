@@ -9,7 +9,7 @@ public class ActionTips {
     public final String ENTRY_ID_DEVELOPER_WHICH_YOU_WANT_TO_SEE = "Entry ID developer which you want to see: ";
     public final String ENTRY_ID_DEVELOPER_WHICH_YOU_WANT_TO_CHANGE = "Entry ID developer which you want to change: ";
 
-    public void viewMainMenu(){
+    public void viewMainMenu() {
         System.out.println("Choice action: ");
         System.out.println("1. Add new Developer.");
         System.out.println("2. Update developer.");
@@ -19,14 +19,14 @@ public class ActionTips {
         System.out.println("6. Exit program.");
     }
 
-    public void choiceAccountStatus(){
+    public void choiceAccountStatus() {
         System.out.println("Choice account status: ");
         System.out.println("A - ACTIVE");
         System.out.println("B - BANED");
         System.out.println("D - DELETED");
     }
 
-    public void updateSkillMenu(){
+    public void updateSkillMenu() {
         System.out.println("Choice action with skill: ");
         System.out.println("Delete skill - D");
         System.out.println("Save skill - S");

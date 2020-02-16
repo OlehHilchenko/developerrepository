@@ -27,7 +27,7 @@ public class Developer {
         this.id = id;
     }
 
-    public void setId(String id){
+    public void setId(String id) {
         this.id = Long.parseLong(id);
     }
 
@@ -55,7 +55,7 @@ public class Developer {
         this.skills = skills;
     }
 
-    public void addSkill(Skill skill){
+    public void addSkill(Skill skill) {
         this.skills.add(skill);
     }
 
@@ -66,7 +66,7 @@ public class Developer {
                 ", name='" + name + '\'' +
                 ", account=" + account +
                 ", skills=" + skills +
-                '}' + "\n";
+                '}';
     }
 
     @Override
@@ -82,7 +82,7 @@ public class Developer {
         return skills != null ? skills.equals(developer.skills) : developer.skills == null;
     }
 
-    public boolean equalsById(Object o){
+    public boolean equalsById(Object o) {
         return this.id == ((Developer) o).id;
     }
 
