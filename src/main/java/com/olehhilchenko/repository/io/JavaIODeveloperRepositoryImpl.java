@@ -126,7 +126,6 @@ public class JavaIODeveloperRepositoryImpl implements DeveloperRepository {
             if (tempList == null)
                 break;
             Developer developer = developerFactory.createDeveloper();
-            Set<Skill> skills = new HashSet<Skill>();
             for (int i = 0; i < tempList.size(); i++) {
                 if (i == 0)
                     developer.setId(tempList.get(i));

@@ -12,6 +12,12 @@ public class ActionsFacade {
     private DeveloperRepository developerRepository = new DeveloperRepositoryFacade();
     private DeveloperController developerController = new DeveloperController();
     private ActionTips actionTips = new ActionTips();
+    private final String NEW_DEV = "1";
+    private final String UPDATE_DEV = "2";
+    private final String DELETE_DEV = "3";
+    private final String VIEW_BY_ID_DEV = "4";
+    private final String VIEW_ALL_DEV = "5";
+    private final String EXIT_THE_APP = "6";
 
 
     private void createDeveloper() {
@@ -47,22 +53,22 @@ public class ActionsFacade {
         while (true) {
             actionTips.viewMainMenu();
             String scan = ActionTips.scan();
-            if ("1".equals(scan)) {//new
+            if (NEW_DEV.equals(scan)) {//new
                 createDeveloper();
 
-            } else if ("2".equals(scan)) {//update
+            } else if (UPDATE_DEV.equals(scan)) {//update
                 updateDeveloper();
 
-            } else if ("3".equals(scan)) {//delete
+            } else if (DELETE_DEV.equals(scan)) {//delete
                 deleteById();
 
-            } else if ("4".equals(scan)) {//view by id
+            } else if (VIEW_BY_ID_DEV.equals(scan)) {//view by id
                 viewById();
 
-            } else if ("5".equals(scan)) {//view all
+            } else if (VIEW_ALL_DEV.equals(scan)) {//view all
                 viewAll();
 
-            } else if ("6".equals(scan)) {
+            } else if (EXIT_THE_APP.equals(scan)) {
                 return;
             }
         }

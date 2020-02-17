@@ -14,6 +14,9 @@ public class SkillController {
 
     private ActionTips actionTips = new ActionTips();
     private SkillFactory skillFactory = new SkillFactoryImpl();
+    private final String DELETE_SKILL = "D";
+    private final String SAVE_SKILL = "S";
+    private final String SKILL_DELETED = "Skill deleted.";
 
     public Set<Skill> createNewSkills() {
         Set<Skill> skillSet = new HashSet<Skill>();
@@ -40,9 +43,9 @@ public class SkillController {
             System.out.println("This skill - " + skill);
             actionTips.updateSkillMenu();
             choice = ActionTips.scan();
-            if (choice.equals("D")) {
-                continue;
-            } else if (choice.equals("S")) {
+            if (DELETE_SKILL.equals(choice)) {
+                System.out.println(SKILL_DELETED);
+            } else if (SAVE_SKILL.equals(choice)) {
                 returnedSkillSet.add(skill);
             } else {
                 skill.setName(choice);
