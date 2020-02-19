@@ -1,15 +1,15 @@
 package main.java.com.olehhilchenko.view;
 
 
-import main.java.com.olehhilchenko.controller.DeveloperController;
 import main.java.com.olehhilchenko.model.Developer;
 import main.java.com.olehhilchenko.repository.io.DeveloperRepository;
-import main.java.com.olehhilchenko.repository.io.DeveloperRepositoryFacade;
+import main.java.com.olehhilchenko.repository.io.DeveloperService;
+import main.java.com.olehhilchenko.controller.DeveloperController;
 
-import java.util.List;
+import java.util.Map;
 
-public class ActionsFacade {
-    private DeveloperRepository developerRepository = new DeveloperRepositoryFacade();
+public class Actions {
+    private DeveloperRepository developerRepository = new DeveloperService();
     private DeveloperController developerController = new DeveloperController();
     private ActionTips actionTips = new ActionTips();
     private final String NEW_DEV = "1";
@@ -43,9 +43,9 @@ public class ActionsFacade {
     }
 
     private void viewAll() {
-        List<Developer> developerList = developerRepository.list();
-        for (Developer developer : developerList) {
-            System.out.println(developer);
+        Map<Long, Developer> developerMap = developerRepository.map();
+        for (long key : developerMap.keySet()) {
+            System.out.println(developerMap.get(key));
         }
     }
 

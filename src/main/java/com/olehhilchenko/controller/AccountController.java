@@ -1,11 +1,11 @@
 package main.java.com.olehhilchenko.controller;
 
-import main.java.com.olehhilchenko.model.Account;
-import main.java.com.olehhilchenko.model.AccountStatus;
 import main.java.com.olehhilchenko.model.factorymethod.AccountFactory;
 import main.java.com.olehhilchenko.model.factorymethod.AccountFactoryImpl;
-import main.java.com.olehhilchenko.repository.io.singleton.AutoIncrementUniqueID;
+import main.java.com.olehhilchenko.repository.io.JavaIOUtils;
 import main.java.com.olehhilchenko.view.ActionTips;
+import main.java.com.olehhilchenko.model.Account;
+import main.java.com.olehhilchenko.model.AccountStatus;
 
 public class AccountController {
     private AccountFactory accountFactory = new AccountFactoryImpl();
@@ -20,7 +20,7 @@ public class AccountController {
 
         actionTips.choiceAccountStatus();
         choiceAccountStatus(account);
-        account.setId(AutoIncrementUniqueID.getAutoIncrementUniqueID().getNextID());
+        account.setId(JavaIOUtils.getNextID());
         return account;
     }
 

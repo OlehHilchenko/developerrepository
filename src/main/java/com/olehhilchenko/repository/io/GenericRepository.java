@@ -1,6 +1,6 @@
 package main.java.com.olehhilchenko.repository.io;
 
-import java.util.List;
+import java.util.Map;
 
 public interface GenericRepository<T, ID> {
 
@@ -12,5 +12,5 @@ public interface GenericRepository<T, ID> {
 
     void remove(ID id);
 
-    List<T> list();
+    Map<Long, T> map();
 }

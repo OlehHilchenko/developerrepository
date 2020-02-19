@@ -1,4 +1,4 @@
-package main.java.com.olehhilchenko.javenue.csv;
+package main.java.com.olehhilchenko.repository.io.csvreaderandwriter;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -28,10 +28,10 @@ import java.util.ArrayList;
  * Examples of usage:
  *
  * Csv.Writer writer = new Csv.Writer("filename").delimiter(',');
- * writer.comment("example of csv").value("a").value("b").newLine().value("c").close();
+ * writer.comment("example of csvreaderandwriter").value("a").value("b").newLine().value("c").close();
  *
  * A piece of code shown above will generate the following CSV file:
- * #example of csv
+ * #example of csvreaderandwriter
  * a,b
  * c
  *
@@ -76,7 +76,7 @@ public class Csv {
         }
 
         public Writer comment(String comment) {
-            if (!first) throw new FormatException("invalid csv: misplaced comment");
+            if (!first) throw new FormatException("invalid csvreaderandwriter: misplaced comment");
             return string("#").string(comment).newLine();
         }
 
@@ -168,7 +168,7 @@ public class Csv {
                         try {
                             line = reader.readLine();
                         } catch (java.io.IOException e) { throw new IOException(e); }
-                        if (line == null) throw new FormatException("invalid csv: premature end of csv");
+                        if (line == null) throw new FormatException("invalid csvreaderandwriter: premature end of csvreaderandwriter");
                         closeQuoteIndex = line.indexOf("\"");
                     }
 
@@ -198,10 +198,10 @@ public class Csv {
         private String unescape(String s) {
             String result = s;
             if (!preserveSpaces || result.contains("\"")) result = result.trim();
-            if (result.startsWith("\"") ^ result.endsWith("\"")) throw new FormatException("invalid csv: misplaced quote");
+            if (result.startsWith("\"") ^ result.endsWith("\"")) throw new FormatException("invalid csvreaderandwriter: misplaced quote");
             if (result.startsWith("\"")) result = result.substring(1, result.length() - 1);
             result = markDoubleQuotes(result);
-            if (result.contains("\"")) throw new FormatException("invalid csv: misplaced quote"); // could this ever happen at all?
+            if (result.contains("\"")) throw new FormatException("invalid csvreaderandwriter: misplaced quote"); // could this ever happen at all?
             result = unmarkDoubleQuotes(result);
             return result;
         }

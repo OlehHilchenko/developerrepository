@@ -3,7 +3,7 @@ package main.java.com.olehhilchenko.controller;
 import main.java.com.olehhilchenko.model.Skill;
 import main.java.com.olehhilchenko.model.factorymethod.SkillFactory;
 import main.java.com.olehhilchenko.model.factorymethod.SkillFactoryImpl;
-import main.java.com.olehhilchenko.repository.io.singleton.AutoIncrementUniqueID;
+import main.java.com.olehhilchenko.repository.io.JavaIOUtils;
 import main.java.com.olehhilchenko.view.ActionTips;
 
 import java.util.HashSet;
@@ -27,7 +27,7 @@ public class SkillController {
             choice = ActionTips.scan();
             if (!choice.equals("-1")) {
                 Skill skill = skillFactory.createSkill();
-                skill.setId(AutoIncrementUniqueID.getAutoIncrementUniqueID().getNextID());
+                skill.setId(JavaIOUtils.getNextID());
                 skill.setName(choice);
 
                 skillSet.add(skill);

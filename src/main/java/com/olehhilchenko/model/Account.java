@@ -9,6 +9,19 @@ public class Account {
         this.accountStatus = accountStatus;
     }
 
+    public Account(long id, String accountStatus) {
+        this.id = id;
+        if (accountStatus.equals("DELETED"))
+            this.accountStatus = AccountStatus.DELETED;
+        else if (accountStatus.equals("BANNED"))
+            this.accountStatus = AccountStatus.BANNED;
+        else if (accountStatus.equals("ACTIVE"))
+            this.accountStatus = AccountStatus.ACTIVE;
+        else if (accountStatus.equals("DEFAULT"))
+            this.accountStatus = AccountStatus.DEFAULT;
+        ;
+    }
+
     public Account() {
     }
 

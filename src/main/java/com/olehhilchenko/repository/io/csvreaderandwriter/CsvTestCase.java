@@ -1,13 +1,15 @@
-package main.java.com.olehhilchenko.javenue.csv;
+package main.java.com.olehhilchenko.repository.io.csvreaderandwriter;
 
 import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 import java.io.StringReader;
 import java.util.Arrays;
 
 public class CsvTestCase {
-    @Test public void core() {
+    @Test
+    public void core() {
         Csv.Reader reader = new Csv.Reader(new StringReader("a"));
         assertEquals(Arrays.asList("a"), reader.readLine());
         assertNull(reader.readLine());
@@ -22,7 +24,8 @@ public class CsvTestCase {
         assertNull(reader.readLine());
     }
 
-    @Test public void quotes() {
+    @Test
+    public void quotes() {
         Csv.Reader reader = new Csv.Reader(new StringReader("\"a;b\";c"));
         assertEquals(Arrays.asList("a;b", "c"), reader.readLine());
         assertNull(reader.readLine());
@@ -40,7 +43,8 @@ public class CsvTestCase {
         assertNull(reader.readLine());
     }
 
-    @Test public void preserveSpaces() {
+    @Test
+    public void preserveSpaces() {
         Csv.Reader reader = new Csv.Reader(new StringReader("a; b ;\" c \""));
         assertEquals(Arrays.asList("a", " b ", " c "), reader.readLine());
 
@@ -59,7 +63,8 @@ public class CsvTestCase {
         assertNull(reader.readLine());
     }
 
-    @Test public void emptyLines() {
+    @Test
+    public void emptyLines() {
         Csv.Reader reader = new Csv.Reader(new StringReader(""));
         assertNull(reader.readLine());
 
@@ -77,19 +82,22 @@ public class CsvTestCase {
         assertNull(reader.readLine());
     }
 
-    @Test public void emptyValues() {
+    @Test
+    public void emptyValues() {
         Csv.Reader reader = new Csv.Reader(new StringReader(";"));
         assertEquals(Arrays.asList("", ""), reader.readLine());
         assertNull(reader.readLine());
     }
 
-    @Test public void trailingLineFeed() {
+    @Test
+    public void trailingLineFeed() {
         Csv.Reader reader = new Csv.Reader(new StringReader("b\n"));
         assertEquals(Arrays.asList("b"), reader.readLine());
         assertNull(reader.readLine());
     }
 
-    @Test public void lineFeed() {
+    @Test
+    public void lineFeed() {
         Csv.Reader reader = new Csv.Reader(new StringReader("a;\"b\nc\";d"));
         assertEquals(Arrays.asList("a", "b\nc", "d"), reader.readLine());
 
@@ -97,12 +105,14 @@ public class CsvTestCase {
         assertEquals(Arrays.asList("a", "b\nc;\n\nd;;\ne", "d"), reader.readLine());
     }
 
-    @Test public void lineFeedEmbeddedQuotes() {
+    @Test
+    public void lineFeedEmbeddedQuotes() {
         Csv.Reader reader = new Csv.Reader(new StringReader("a;\"b\"\"\nc\"\"\";d"));
         assertEquals(Arrays.asList("a", "b\"\nc\"", "d"), reader.readLine());
     }
 
-    @Test public void invalidCsv() {
+    @Test
+    public void invalidCsv() {
         boolean exceptionCaught = false;
         Csv.Reader reader = new Csv.Reader(new StringReader("a;\"b"));
         try {
@@ -131,7 +141,8 @@ public class CsvTestCase {
         assertTrue(exceptionCaught);
     }
 
-    @Test public void comments() {
+    @Test
+    public void comments() {
         Csv.Reader reader = new Csv.Reader(new StringReader("a\n#a\na"));
         assertEquals(Arrays.asList("a"), reader.readLine());
         assertEquals(Arrays.asList("#a"), reader.readLine());
@@ -167,7 +178,8 @@ public class CsvTestCase {
         assertNull(reader.readLine());
     }
 
-    @Test public void write() {
+    @Test
+    public void write() {
         StringBuffer buffer = new StringBuffer();
         Csv.Writer writer = new Csv.Writer(buffer).delimiter(',');
         writer.comment("test start");

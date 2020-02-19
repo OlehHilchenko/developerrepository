@@ -3,7 +3,7 @@ package main.java.com.olehhilchenko.controller;
 import main.java.com.olehhilchenko.model.Developer;
 import main.java.com.olehhilchenko.model.factorymethod.DeveloperFactory;
 import main.java.com.olehhilchenko.model.factorymethod.DeveloperFactoryImpl;
-import main.java.com.olehhilchenko.repository.io.singleton.AutoIncrementUniqueID;
+import main.java.com.olehhilchenko.repository.io.JavaIOUtils;
 import main.java.com.olehhilchenko.view.ActionTips;
 
 public class DeveloperController {
@@ -14,7 +14,7 @@ public class DeveloperController {
 
     public Developer createNewDeveloper() {
         Developer developer = developerFactory.createDeveloper();
-        developer.setId(AutoIncrementUniqueID.getAutoIncrementUniqueID().getNextID());
+        developer.setId(JavaIOUtils.getNextID());
 
         System.out.println(actionTips.ENTRY_DEVELOPER_NAME);
         developer.setName(ActionTips.scan());
