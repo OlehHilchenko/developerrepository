@@ -2,7 +2,7 @@ package main.java.com.olehhilchenko.view;
 
 
 import main.java.com.olehhilchenko.model.Developer;
-import main.java.com.olehhilchenko.repository.io.DeveloperRepository;
+import main.java.com.olehhilchenko.repository.DeveloperRepository;
 import main.java.com.olehhilchenko.repository.io.DeveloperService;
 import main.java.com.olehhilchenko.controller.DeveloperController;
 

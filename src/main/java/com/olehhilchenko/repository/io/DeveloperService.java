@@ -3,6 +3,9 @@ package main.java.com.olehhilchenko.repository.io;
 import main.java.com.olehhilchenko.model.Skill;
 import main.java.com.olehhilchenko.model.Account;
 import main.java.com.olehhilchenko.model.Developer;
+import main.java.com.olehhilchenko.repository.AccountRepository;
+import main.java.com.olehhilchenko.repository.DeveloperRepository;
+import main.java.com.olehhilchenko.repository.SkillRepository;
 
 import java.util.HashMap;
 import java.util.HashSet;

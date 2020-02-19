@@ -24,7 +24,6 @@ public class JavaIOUtilsDeveloper extends JavaIOUtils<Developer> {
                 Account account = new Account();
                 Set<Skill> skillSet = new HashSet<Skill>();
 
-
                 developer.setId(stringList.get(0));
                 stringList.remove(0);
                 developer.setName(stringList.get(0));

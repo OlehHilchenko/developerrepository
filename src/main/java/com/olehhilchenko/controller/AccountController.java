@@ -1,14 +1,11 @@
 package main.java.com.olehhilchenko.controller;
 
-import main.java.com.olehhilchenko.model.factorymethod.AccountFactory;
-import main.java.com.olehhilchenko.model.factorymethod.AccountFactoryImpl;
 import main.java.com.olehhilchenko.repository.io.JavaIOUtils;
 import main.java.com.olehhilchenko.view.ActionTips;
 import main.java.com.olehhilchenko.model.Account;
 import main.java.com.olehhilchenko.model.AccountStatus;
 
 public class AccountController {
-    private AccountFactory accountFactory = new AccountFactoryImpl();
     private ActionTips actionTips = new ActionTips();
     private final String ACCOUNT_STATUS_ACTIVE = "A";
     private final String ACCOUNT_STATUS_BANNED = "B";
@@ -16,7 +13,7 @@ public class AccountController {
 
 
     public Account createNewAccount() {
-        Account account = accountFactory.createAccount();
+        Account account = new Account();
 
         actionTips.choiceAccountStatus();
         choiceAccountStatus(account);

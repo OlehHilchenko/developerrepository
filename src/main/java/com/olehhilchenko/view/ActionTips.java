@@ -1,6 +1,6 @@
 package main.java.com.olehhilchenko.view;
 
-import java.util.Scanner;
+        import java.util.Scanner;
 
 public class ActionTips {
     public final String ENTRY_DEVELOPER_NAME = "Entry developer name: ";

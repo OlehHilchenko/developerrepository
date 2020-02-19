@@ -1,4 +1,4 @@
-package main.java.com.olehhilchenko.repository.io;
+package main.java.com.olehhilchenko.repository;
 
 import main.java.com.olehhilchenko.model.Developer;
 

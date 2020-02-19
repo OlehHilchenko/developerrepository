@@ -1,6 +1,7 @@
 package main.java.com.olehhilchenko.repository.io;
 
 import main.java.com.olehhilchenko.model.Skill;
+import main.java.com.olehhilchenko.repository.SkillRepository;
 
 import java.io.FileNotFoundException;
 import java.util.Map;

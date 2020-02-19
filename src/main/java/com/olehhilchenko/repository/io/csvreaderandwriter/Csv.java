@@ -44,7 +44,6 @@ import java.util.ArrayList;
  * @author Konstantin Chapyuk aka c0nst
  * @url http://www.javenue.info
  * @version 1.0
- * @see javenue.csv.CsvTestCase
  * @noinspection JavadocReference
  */
 public class Csv {

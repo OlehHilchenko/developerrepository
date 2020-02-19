@@ -1,8 +1,6 @@
 package main.java.com.olehhilchenko.controller;
 
 import main.java.com.olehhilchenko.model.Skill;
-import main.java.com.olehhilchenko.model.factorymethod.SkillFactory;
-import main.java.com.olehhilchenko.model.factorymethod.SkillFactoryImpl;
 import main.java.com.olehhilchenko.repository.io.JavaIOUtils;
 import main.java.com.olehhilchenko.view.ActionTips;
 
@@ -13,7 +11,6 @@ import java.util.Set;
 public class SkillController {
 
     private ActionTips actionTips = new ActionTips();
-    private SkillFactory skillFactory = new SkillFactoryImpl();
     private final String DELETE_SKILL = "D";
     private final String SAVE_SKILL = "S";
     private final String SKILL_DELETED = "Skill deleted.";
@@ -26,7 +23,7 @@ public class SkillController {
             System.out.println(actionTips.ENTRY_SKILL_NAME);
             choice = ActionTips.scan();
             if (!choice.equals("-1")) {
-                Skill skill = skillFactory.createSkill();
+                Skill skill = new Skill();
                 skill.setId(JavaIOUtils.getNextID());
                 skill.setName(choice);
 
